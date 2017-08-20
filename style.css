@@ -1,0 +1,6 @@
+body{
+	background: #eee;
+}
+.task-item{
+	display: inline-block;
+}

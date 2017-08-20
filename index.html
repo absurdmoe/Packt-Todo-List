@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample Todo list</title>
+	<link rel='stylesheet' href='style.css' />
+</head>
+<body>
+	<p>Todo List</p>
+	<button>Add New Task</button>
+	<div id="new-task">
+		<form action='/tasks/new/' method='post'>
+			<input name='info'   />
+			<input type='submit' />
+		</form>
+	</div>
+
+	<div id="tasks">
+	</div>
+
+	<script src='script.js'></script>
+</body>
+</html>

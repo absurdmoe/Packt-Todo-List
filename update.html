@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Update Item</title>
+</head>
+<body>
+
+	<a href="/">Home</a>
+	<p class="item-info">Edit this Task</p>
+	<hr/>
+	<form>
+		<input type="hidden" name="id" id="id"/>
+		<input type="text" name="info"  id="info"/>
+		<button type="button" onclick="submitThis()">Submit</button>
+	</form>
+	
+	<script>
+		let path = window.location.pathname.split("/");
+		let id = path[path.length - 1];
+		console.log(id+'BAZ');
+		fetch("/tasks/index").then((res)=>{
+			res.json().then((tasks)=>{
+				tasks.forEach((task)=>{
+					if(task._id === id){
+						console.log(task)
+						let info = document.getElementById('info');
+						info.value = task.info;
+
+						let taskid = document.getElementById('id');
+						taskid.value = task._id;
+					} 
+				})
+			})
+		})
+
+		function submitThis(){
+			fetch('/tasks/update/',{ method: 'PUT',body: JSON.stringify({
+				id: document.getElementById('id').value,
+				info: document.getElementById('info').value
+			}),headers: {
+                "Content-Type": "application/json"
+            	}
+			});
+			window.location = "/";
+		}
+
+
+	</script>
+</body>
+</html>
