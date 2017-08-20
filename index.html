@@ -2,15 +2,17 @@
 <html>
 <head>
 	<title>Sample Todo list</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel='stylesheet' href='style.css' />
 </head>
 <body>
-	<p>Todo List</p>
-	<button>Add New Task</button>
-	<div id="new-task">
+	<p class="todo-title">Todo List</p>
+	<hr/>
+	<button class="add-item" onclick="addNewTask(this)">Add New Task</button>
+	<div id="new-task" class="new-task">
 		<form action='/tasks/new/' method='post'>
 			<input name='info'   />
-			<input type='submit' />
+			<button type='submit' class="submit">Submit</button>
 		</form>
 	</div>
 
